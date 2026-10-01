@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Guess The Number</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div>
+                <h1>Guess The Number</h1>
+                <p>Guess a number between 1 and 100</p>
+            </div>
+
+            <div class="online">
+                ● Online
+            </div>
+
+        </header>
+
+
+        <!-- Game Stats -->
+        <div class="stats">
+
+            <div class="stat">
+                <span>Difficulty</span>
+                <strong id="difficultyDisplay">EASY</strong>
+            </div>
+
+            <div class="stat">
+                <span>Time Left</span>
+                <strong id="timer">60</strong>
+            </div>
+
+            <div class="stat">
+                <span>Attempts</span>
+                <strong>
+                    <span id="attempts">0</span> /
+                    <span id="maxAttempts">7</span>
+                </strong>
+            </div>
+
+            <div class="stat">
+                <span>Score</span>
+                <strong id="score">100</strong>
+            </div>
+
+            <div class="stat">
+                <span>High Score</span>
+                <strong id="highScore">0</strong>
+            </div>
+
+        </div>
+
+
+        <!-- Timer -->
+        <div class="timer-bg">
+            <div id="timerProgress"></div>
+        </div>
+
+
+        <!-- Main Content -->
+        <main class="main">
+
+            <!-- Left -->
+            <section class="game-box">
+
+                <h2>Game</h2>
+
+
+                <!-- Difficulty -->
+                <div class="difficulty">
+
+                    <label>Difficulty</label>
+
+                    <div class="difficulty-buttons">
+
+                        <button
+                            class="difficulty-btn active"
+                            data-difficulty="easy"
+                        >
+                            Easy
+                            <small>60 sec / 7 attempts</small>
+                        </button>
+
+                        <button
+                            class="difficulty-btn"
+                            data-difficulty="medium"
+                        >
+                            Medium
+                            <small>30 sec / 5 attempts</small>
+                        </button>
+
+                        <button
+                            class="difficulty-btn"
+                            data-difficulty="hard"
+                        >
+                            Hard
+                            <small>15 sec / 3 attempts</small>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Number Range -->
+                <div class="number-range">
+
+                    <span>Guess a number from</span>
+
+                    <strong>1 — 100</strong>
+
+                </div>
+
+
+                <!-- Message -->
+                <div
+                    class="message"
+                    id="message"
+                >
+                    Enter your first guess.
+                </div>
+
+
+                <!-- Input -->
+                <div class="input-area">
+
+                    <input
+                        type="number"
+                        id="guessInput"
+                        min="1"
+                        max="100"
+                        placeholder="Enter your guess"
+                    >
+
+                    <button
+                        id="guessBtn"
+                        class="guess-btn"
+                    >
+                        Guess
+                    </button>
+
+                </div>
+
+
+                <button
+                    id="newGameBtn"
+                    class="new-game"
+                >
+                    New Game
+                </button>
+
+
+                <!-- Analysis -->
+                <div class="analysis">
+
+                    <h3>Hint</h3>
+
+                    <p id="analysisText">
+                        Waiting for your first guess...
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- Right -->
+            <aside class="right">
+
+                <!-- Status -->
+                <div class="side-box">
+
+                    <h2>Game Status</h2>
+
+                    <div class="row">
+                        <span>Range</span>
+                        <strong>1 – 100</strong>
+                    </div>
+
+                    <div class="row">
+                        <span>Score</span>
+                        <strong id="sideScore">100</strong>
+                    </div>
+
+                    <div class="row">
+                        <span>Attempts left</span>
+                        <strong id="sideAttempts">7</strong>
+                    </div>
+
+                    <div class="row">
+                        <span>Time left</span>
+                        <strong id="sideTimer">60s</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- History -->
+                <div class="side-box">
+
+                    <h2>Guess History</h2>
+
+                    <div
+                        id="history"
+                        class="history"
+                    >
+
+                        <div class="empty-history">
+                            No guesses yet
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Instructions -->
+                <div class="side-box instructions">
+
+                    <h2>How to Play</h2>
+
+                    <p>1. Select a difficulty.</p>
+
+                    <p>2. Enter a number between 1 and 100.</p>
+
+                    <p>3. Use the hint to adjust your next guess.</p>
+
+                    <p>4. Find the number before your attempts or time run out.</p>
+
+                </div>
+
+            </aside>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer>
+
+            Guess The Number
+
+            <span>•</span>
+
+            Created by
+            <strong>Dipesh Yadav</strong>
+
+        </footer>
+
+    </div>
+
+
+    <!-- Result Modal -->
+    <div
+        class="modal-overlay"
+        id="resultModal"
+    >
+
+        <div class="modal">
+
+            <div
+                class="modal-icon"
+                id="modalIcon"
+            >
+                ✓
+            </div>
+
+            <h2 id="modalTitle">
+                Correct Guess
+            </h2>
+
+            <p id="modalText">
+                You found the number.
+            </p>
+
+            <div class="final-score">
+
+                Final Score
+
+                <strong id="finalScore">
+                    100
+                </strong>
+
+            </div>
+
+            <button
+                id="modalNewGame"
+                class="guess-btn"
+            >
+                Play Again
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

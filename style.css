@@ -1,0 +1,995 @@
+/* ==============================
+   BASIC
+============================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f5f7;
+    color: #202428;
+    min-height: 100vh;
+}
+
+
+/* ==============================
+   APP
+============================== */
+
+.app {
+    width: 92%;
+    max-width: 1200px;
+    margin: 35px auto;
+    background: #ffffff;
+    border: 1px solid #dfe3e6;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+/* ==============================
+   HEADER
+============================== */
+
+.header {
+    padding: 24px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7e9;
+}
+
+.header h1 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #202428;
+}
+
+.header p {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #737b82;
+}
+
+.online {
+    font-size: 13px;
+    color: #2e8b57;
+}
+
+
+/* ==============================
+   STATS
+============================== */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-bottom: 1px solid #e5e7e9;
+}
+
+.stat {
+    padding: 18px 20px;
+    border-right: 1px solid #e5e7e9;
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat span {
+    display: block;
+    font-size: 12px;
+    color: #777f86;
+    margin-bottom: 7px;
+}
+
+.stat strong {
+    font-size: 18px;
+    font-weight: 600;
+    color: #252a2e;
+}
+
+
+/* ==============================
+   TIMER
+============================== */
+
+.timer-bg {
+    height: 4px;
+    background: #e9ecef;
+}
+
+#timerProgress {
+    height: 100%;
+    width: 100%;
+    background: #3b9b68;
+    transition: width 1s linear;
+}
+
+
+/* ==============================
+   MAIN
+============================== */
+
+.main {
+    display: grid;
+    grid-template-columns: 1.6fr 0.8fr;
+    gap: 25px;
+    padding: 25px 30px;
+}
+
+
+/* ==============================
+   GAME BOX
+============================== */
+
+.game-box,
+.side-box {
+    border: 1px solid #e0e4e7;
+    border-radius: 7px;
+    background: #ffffff;
+}
+
+.game-box {
+    padding: 25px;
+}
+
+.game-box h2,
+.side-box h2 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #25292d;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e7e9eb;
+}
+
+
+/* ==============================
+   DIFFICULTY
+============================== */
+
+.difficulty {
+    margin-top: 23px;
+}
+
+.difficulty label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.difficulty-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.difficulty-btn {
+    background: #ffffff;
+    border: 1px solid #d8dde1;
+    border-radius: 5px;
+    padding: 12px 8px;
+    font-size: 13px;
+    cursor: pointer;
+    color: #454c52;
+}
+
+.difficulty-btn:hover {
+    border-color: #6c757d;
+}
+
+.difficulty-btn.active {
+    border-color: #32875b;
+    background: #f0f8f4;
+    color: #26734b;
+}
+
+.difficulty-btn small {
+    display: block;
+    margin-top: 5px;
+    font-size: 10px;
+    color: #858d93;
+}
+
+
+/* ==============================
+   NUMBER RANGE
+============================== */
+
+.number-range {
+    margin: 30px 0 20px;
+    text-align: center;
+}
+
+.number-range span {
+    display: block;
+    font-size: 13px;
+    color: #777f86;
+}
+
+.number-range strong {
+    display: block;
+    margin-top: 7px;
+    font-size: 30px;
+    font-weight: 500;
+    color: #2f7d55;
+}
+
+
+/* ==============================
+   MESSAGE
+============================== */
+
+.message {
+    text-align: center;
+    min-height: 22px;
+    font-size: 14px;
+    color: #697278;
+    margin-bottom: 15px;
+}
+
+
+/* ==============================
+   INPUT
+============================== */
+
+.input-area {
+    display: grid;
+    grid-template-columns: 1fr 130px;
+    gap: 10px;
+}
+
+#guessInput {
+    height: 46px;
+    padding: 0 15px;
+    border: 1px solid #cfd5d9;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+}
+
+#guessInput:focus {
+    border-color: #4b9a6b;
+}
+
+#guessInput::placeholder {
+    color: #a0a6aa;
+}
+
+
+/* ==============================
+   BUTTON
+============================== */
+
+.guess-btn {
+    border: none;
+    border-radius: 5px;
+    background: #32875b;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.guess-btn:hover {
+    background: #286f4b;
+}
+
+.new-game {
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    border: 1px solid #d3d8dc;
+    border-radius: 5px;
+    background: white;
+    color: #555d63;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.new-game:hover {
+    background: #f6f7f8;
+}
+
+
+/* ==============================
+   HINT
+============================== */
+
+.analysis {
+    margin-top: 22px;
+    padding: 15px;
+    background: #f6f8f9;
+    border-radius: 5px;
+}
+
+.analysis h3 {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: #50585e;
+}
+
+.analysis p {
+    font-size: 13px;
+    color: #747d83;
+    line-height: 1.5;
+}
+
+
+/* ==============================
+   RIGHT
+============================== */
+
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.side-box {
+    padding: 20px;
+}
+
+.side-box h2 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+
+/* ==============================
+   STATUS
+============================== */
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #edf0f1;
+    font-size: 13px;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.row span {
+    color: #777f86;
+}
+
+.row strong {
+    font-weight: 600;
+    color: #33393e;
+}
+
+
+/* ==============================
+   HISTORY
+============================== */
+
+.history {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.empty-history {
+    padding: 20px 0;
+    text-align: center;
+    color: #9aa1a6;
+    font-size: 12px;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #edf0f1;
+    font-size: 13px;
+}
+
+.history-number {
+    color: #30363a;
+}
+
+.history-result {
+    color: #c34b4b;
+}
+
+.history-result.correct {
+    color: #2e8b57;
+}
+
+
+/* ==============================
+   INSTRUCTIONS
+============================== */
+
+.instructions p {
+    font-size: 12px;
+    color: #707980;
+    line-height: 1.6;
+    margin-bottom: 9px;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+    border-top: 1px solid #e5e7e9;
+    padding: 17px;
+    text-align: center;
+    font-size: 12px;
+    color: #8a9298;
+}
+
+footer span {
+    margin: 0 7px;
+    color: #c0c5c8;
+}
+
+footer strong {
+    color: #32875b;
+    font-weight: 600;
+}
+
+
+/* ==============================
+   MODAL
+============================== */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal {
+    width: 380px;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-icon {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    border-radius: 50%;
+    border: 2px solid #32875b;
+    color: #32875b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.modal h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #292e32;
+}
+
+.modal p {
+    margin: 10px 0 20px;
+    font-size: 13px;
+    color: #777f86;
+}
+
+.final-score {
+    font-size: 12px;
+    color: #777f86;
+    margin-bottom: 20px;
+}
+
+.final-score strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 28px;
+    color: #32875b;
+}
+
+.modal .guess-btn {
+    width: 100%;
+    height: 42px;
+}
+
+
+/* ==============================
+   DESKTOP / TABLET
+============================== */
+
+@media (max-width: 850px) {
+
+    .main {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 600px) {
+
+    .app {
+        width: 96%;
+        margin: 15px auto;
+    }
+
+    .header {
+        padding: 18px;
+    }
+
+    .header h1 {
+        font-size: 21px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat {
+        border-bottom: 1px solid #e5e7e9;
+    }
+
+    .main {
+        padding: 15px;
+    }
+
+    .game-box {
+        padding: 18px;
+    }
+
+    .difficulty-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .input-area {
+        grid-template-columns: 1fr;
+    }
+
+    .guess-btn {
+        height: 44px;
+    }
+}
+/* ==============================
+   SKY BLUE THEME
+============================== */
+
+body {
+    background: #eef8ff;
+    color: #1e293b;
+}
+
+.app {
+    background: #ffffff;
+    border-color: #b9dff5;
+    box-shadow: 0 10px 35px rgba(14, 116, 170, 0.15);
+}
+
+
+/* Header */
+
+.header {
+    background: #e8f6ff;
+    border-bottom-color: #c7e7f7;
+}
+
+.header h1 {
+    color: #12344d;
+}
+
+.header p {
+    color: #648196;
+}
+
+.online {
+    color: #168ac4;
+}
+
+
+/* Stats */
+
+.stat {
+    background: #f7fcff;
+    border-right-color: #d4edf9;
+}
+
+.stat span {
+    color: #6d8494;
+}
+
+.stat strong {
+    color: #168ac4;
+}
+
+
+/* Timer */
+
+.timer-bg {
+    background: #dceff9;
+}
+
+#timerProgress {
+    background: linear-gradient(
+        90deg,
+        #38bdf8,
+        #0284c7
+    );
+}
+
+
+/* Main boxes */
+
+.game-box,
+.side-box {
+    background: #ffffff;
+    border-color: #c7e5f4;
+}
+
+.game-box h2,
+.side-box h2 {
+    color: #173b53;
+    border-bottom-color: #d9edf7;
+}
+
+
+/* Difficulty */
+
+.difficulty label {
+    color: #36566b;
+}
+
+.difficulty-btn {
+    background: #f8fcff;
+    border-color: #b9dceb;
+    color: #45677b;
+}
+
+.difficulty-btn:hover {
+    border-color: #38bdf8;
+    color: #0877ad;
+}
+
+.difficulty-btn.active {
+    background: #dff4ff;
+    border-color: #38bdf8;
+    color: #0878b0;
+}
+
+.difficulty-btn small {
+    color: #78909f;
+}
+
+
+/* Number */
+
+.number-range span {
+    color: #6d8494;
+}
+
+.number-range strong {
+    color: #0284c7;
+}
+
+
+/* Message */
+
+.message {
+    color: #5f7483;
+}
+
+
+/* Input */
+
+#guessInput {
+    background: #f9fdff;
+    border-color: #b9dceb;
+    color: #173b53;
+}
+
+#guessInput:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+#guessInput::placeholder {
+    color: #91a6b4;
+}
+
+
+/* Guess Button */
+
+.guess-btn {
+    background: linear-gradient(
+        135deg,
+        #38bdf8,
+        #0284c7
+    );
+
+    color: white;
+}
+
+.guess-btn:hover {
+    background: linear-gradient(
+        135deg,
+        #5ac9fa,
+        #036fa8
+    );
+}
+
+
+/* New Game */
+
+.new-game {
+    background: #ffffff;
+    border-color: #b9dceb;
+    color: #426477;
+}
+
+.new-game:hover {
+    background: #eef9ff;
+    border-color: #38bdf8;
+    color: #0878b0;
+}
+
+
+/* Hint */
+
+.analysis {
+    background: #eff9ff;
+    border-left-color: #38bdf8;
+}
+
+.analysis h3 {
+    color: #087db5;
+}
+
+.analysis p {
+    color: #668090;
+}
+
+
+/* Side Status */
+
+.row {
+    border-bottom-color: #e1f0f7;
+}
+
+.row span {
+    color: #6d8494;
+}
+
+.row strong {
+    color: #23465c;
+}
+
+
+/* History */
+
+.history-item {
+    border-bottom-color: #e1f0f7;
+}
+
+.history-number {
+    color: #284b60;
+}
+
+.history-result {
+    color: #dc5c67;
+}
+
+.history-result.correct {
+    color: #15966a;
+}
+
+
+/* Footer */
+
+footer {
+    background: #f4fbff;
+    border-top-color: #c7e5f4;
+    color: #718897;
+}
+
+footer strong {
+    color: #0284c7;
+}
+
+
+/* Modal */
+
+.modal-overlay {
+    background: rgba(10, 45, 65, 0.45);
+}
+
+.modal {
+    background: #ffffff;
+    border: 1px solid #b9dceb;
+}
+
+.modal h2 {
+    color: #173b53;
+}
+
+.modal p {
+    color: #6d8494;
+}
+
+.modal-icon {
+    border-color: #38bdf8;
+    color: #0284c7;
+}
+
+.final-score {
+    color: #6d8494;
+}
+
+.final-score strong {
+    color: #0284c7;
+}
+/* ==============================
+   SLIGHTLY LARGER FONT
+============================== */
+
+/* Header */
+.header h1 {
+    font-size: 28px;
+}
+
+.header p {
+    font-size: 15px;
+}
+
+
+/* Stats */
+.stat span {
+    font-size: 13px;
+}
+
+.stat strong {
+    font-size: 20px;
+}
+
+
+/* Headings */
+.game-box h2,
+.side-box h2 {
+    font-size: 19px;
+}
+
+
+/* Difficulty */
+.difficulty label {
+    font-size: 14px;
+}
+
+.difficulty-btn {
+    font-size: 14px;
+}
+
+.difficulty-btn small {
+    font-size: 11px;
+}
+
+
+/* Number */
+.number-range span {
+    font-size: 14px;
+}
+
+.number-range strong {
+    font-size: 34px;
+}
+
+
+/* Message */
+.message {
+    font-size: 15px;
+}
+
+
+/* Input */
+#guessInput {
+    font-size: 16px;
+}
+
+#guessInput::placeholder {
+    font-size: 14px;
+}
+
+
+/* Buttons */
+.guess-btn {
+    font-size: 15px;
+}
+
+.new-game {
+    font-size: 14px;
+}
+
+
+/* Hint */
+.analysis h3 {
+    font-size: 13px;
+}
+
+.analysis p {
+    font-size: 14px;
+}
+
+
+/* Right panel */
+.row {
+    font-size: 14px;
+}
+
+.row strong {
+    font-size: 14px;
+}
+
+
+/* History */
+.history-item {
+    font-size: 14px;
+}
+
+.empty-history {
+    font-size: 13px;
+}
+
+
+/* Instructions */
+.instructions p {
+    font-size: 13px;
+}
+
+
+/* Footer */
+footer {
+    font-size: 13px;
+}
+
+footer strong {
+    font-size: 13px;
+}
+
+
+/* Modal */
+.modal h2 {
+    font-size: 22px;
+}
+
+.modal p {
+    font-size: 14px;
+}
+
+.final-score {
+    font-size: 13px;
+}
+
+.final-score strong {
+    font-size: 30px;
+}
